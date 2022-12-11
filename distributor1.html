@@ -49,7 +49,7 @@ hr {
 <body>
 <form>
   <div class="container">
-  <center>  <h1>Manufactures Details </h1> </center>
+  <center>  <h1>Distribution Details </h1> </center>
   <hr>
   <select name="SELECT">
     <option value="----SELECT----">----SELECT----</option>
@@ -62,21 +62,20 @@ hr {
   <br>
   
 
-<label> Manufacture_ID </label> 
-<input type="text" name="Manufacture_ID" placeholder="Manufacture_ID" size="15" required  value="18657"/> 
-
-<label>Manufacture Name </label> 
-<input type="text" name="Manufacture Name" placeholder="Manufacture Name" size="15" required  value="Orange biotech pvt.ltd"/> 
+<label>Distributors_ID </label> 
+<input type="text" name="Distributors_ID" placeholder="Distributors_ID" size="15" required /> 
+<label>Distributors Name </label> 
+<input type="text" name="Distributors Name" placeholder="DistributorsName" size="15" required /> 
 <label> Drug Name</label>  
-<input type="text" name="Drug Name" placeholder="Drug Name" size="15"required value="Benadry" />  
+<input type="text" name="Drug Name" placeholder="Drug Name" size="15"required />  
 <label> Drug_ID Number</label>  
-<input type="text" name="Drug_ID Number" placeholder="Drug_ID Number" size="15"required value="Ben_123" /> 
-<label> Drug_manifactued date </label>  
-<input type="text" name="Drug_manifactued date" placeholder="Drug_manifactued date" size="15"required value="09-12-2022" />  
-<label> Drug_expiry date </label>  
-<input type="text" name="Drug_expiry date" placeholder="Drug_expiry date" size="15"required  value="09-12-2023"/>  
-<label> Number units manifactued </label>  
-<input type="text" name=" Number units manifactued" placeholder=" Number units manifactued" size="15"required value="10" />  
+<input type="text" name="Drug_ID Number" placeholder="Drug_ID Number" size="15"required /> 
+<label> batch_ID Number</label>  
+<input type="text" name="batch_ID Numbe" placeholder="batch_ID Numbe" size="15"required /> 
+<label> Vehicle Number</label>  
+<input type="text" name="Vehicle Number" placeholder="Vehicle Number" size="15"required /> 
+<label> Number of units Distribution </label>  
+<input type="text" name=" Number units manifactued" placeholder=" Number units manifactued" size="15"required />  
 
 <div>
 <label> 
@@ -97,10 +96,10 @@ Places of Distribution:
 Phone :
 </label>
 
-<input type="text" name="phone" placeholder="phone no." size="10"/ required value="9122023659"> 
+<input type="text" name="phone" placeholder="phone no." size="10"/ required> 
 Address  
 <br>  
-<textarea cols="80" rows="5"  value="Ak Rd, Saki Naka,Mumbai,400072">  
+<textarea cols="80" rows="5" value="address">  
 </textarea>  
 <br> <br> 
 <button type="button" onclick="alert('SUCESSFULL!')">Submit</button>
@@ -146,21 +145,21 @@ Address
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "manufacture_id",
+				"name": "distribution_id",
 				"type": "uint256"
 			},
 			{
 				"internalType": "string",
-				"name": "_manufacture_name",
+				"name": "_distribution_name",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "_manufacture_address",
+				"name": "_distribution_address",
 				"type": "string"
 			}
 		],
-		"name": "store_manufacture_details",
+		"name": "store_distribution_details",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -174,11 +173,11 @@ Address
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "manufacture_id",
+				"name": "distribution_id",
 				"type": "uint256"
 			}
 		],
-		"name": "retreive_manufacture_details",
+		"name": "retreive_distribution_details",
 		"outputs": [
 			{
 				"internalType": "string",
@@ -194,12 +193,13 @@ Address
 		"stateMutability": "view",
 		"type": "function"
 	}
+]
 ];
 contractaddress = '0x9D7f74d0C41E726EC95884E0e97Fa6129e3b5E99';
 
  
 
-var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '4000000000', gas: '8000000'});
+var myContract = new Web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '4000000000', gas: '8000000'});
 
                            
 
