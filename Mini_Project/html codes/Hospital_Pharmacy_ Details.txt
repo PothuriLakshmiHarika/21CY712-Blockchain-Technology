@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+.container {
+    padding: 50px;
+  background-color: lightblue;
+}
+
+input[type=text], input[type=password], textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: orange;
+  outline: none;
+}
+ div {
+            padding: 10px 0;
+         }
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.registerbtn:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<form>
+  <div class="container">
+  <center>  <h1>Hospital Pharmacy Details </h1> </center>
+  <hr>
+  <select name="SELECT">
+    <option value="----SELECT----">----SELECT----</option>
+    <option value="Tablets">Tablets</option>
+    <option value="Capsules">Capsules</option>
+    <option value="Syrup">Syrup</option>
+    <option value="Injectables">Injectables</option>
+  </select>
+  <label> Select Drug  </label> 
+  <br>
+  
+
+
+<label> Drug Name</label>  
+<input type="text" name="Drug Name" placeholder="Drug Name" size="15"required />  
+<label> Drug_ID Number</label>  
+<input type="text" name="Drug_ID Number" placeholder="Drug_ID Number" size="15"required /> 
+<label> Number of units requried </label>  
+<input type="text" name=" Number of units requried" placeholder=" Number of units requried" size="15"required />  
+
+<button type="button" onclick="alert('SUCESSFULL!')">Submit</button>

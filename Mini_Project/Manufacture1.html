@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: pink;
+}
+.container {
+    padding: 50px;
+  background-color: lightblue;
+}
+
+input[type=text], input[type=password], textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: orange;
+  outline: none;
+}
+ div {
+            padding: 10px 0;
+         }
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.registerbtn:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<form>
+  <div class="container">
+  <center>  <h1>Manufactures Details </h1> </center>
+  <hr>
+  <select name="SELECT">
+    <option value="----SELECT----">----SELECT----</option>
+    <option value="Tablets">Tablets</option>
+    <option value="Capsules">Capsules</option>
+    <option value="Syrup">Syrup</option>
+    <option value="Injectables">Injectables</option>
+  </select>
+  <label> Select Drug  </label> 
+  <br>
+  
+
+<label> Manufacture_ID </label> 
+<input type="text" name="Manufacture_ID" placeholder="Manufacture_ID" size="15" required  value="18657"/> 
+
+<label>Manufacture Name </label> 
+<input type="text" name="Manufacture Name" placeholder="Manufacture Name" size="15" required  value="Orange biotech pvt.ltd"/> 
+<label> Drug Name</label>  
+<input type="text" name="Drug Name" placeholder="Drug Name" size="15"required value="Benadry" />  
+<label> Drug_ID Number</label>  
+<input type="text" name="Drug_ID Number" placeholder="Drug_ID Number" size="15"required value="Ben_123" /> 
+<label> Drug_manifactued date </label>  
+<input type="text" name="Drug_manifactued date" placeholder="Drug_manifactued date" size="15"required value="09-12-2022" />  
+<label> Drug_expiry date </label>  
+<input type="text" name="Drug_expiry date" placeholder="Drug_expiry date" size="15"required  value="09-12-2023"/>  
+<label> Number units manifactued </label>  
+<input type="text" name=" Number units manifactued" placeholder=" Number units manifactued" size="15"required value="10" />  
+
+<div>
+<label> 
+Places of Distribution:
+</label> 
+
+<select>
+  <option value="----SELECT----">----SELECT----</option>
+<option value="Tamil Nadu">Tamil Nadu</option>
+<option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Kerala">Kerala</option>
+<option value="Karnataka">Karnataka</option>
+
+</select>
+</div>
+
+<label> 
+Phone :
+</label>
+
+<input type="text" name="phone" placeholder="phone no." size="10"/ required value="9122023659"> 
+Address  
+<br>  
+<textarea cols="80" rows="5"  value="Ak Rd, Saki Naka,Mumbai,400072">  
+</textarea>  
+<br> <br> 
+<button type="button" onclick="alert('SUCESSFULL!')">Submit</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+    <script>	
+	
+	var account;
+	window.addEventListener('load', async () => {
+
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			
+			// To prevent the page reloading when the MetaMask network changes
+			ethereum.autoRefreshOnNetworkChange = false;
+			
+			// To Capture the account details from MetaMask
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+				
+			}
+		// Legacy DApp browsers
+		else if (window.web3) {
+			//window.web3 = new Web3(web3.currentProvider);
+			window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/cbd9dc11b30147e9a2cc974be655ef7c")); 
+			}
+		// Non-DApp browsers
+		else {
+			console.log('Non-Ethereum browser detected. Please install MetaMask');
+			}
+			
+			});
+		
+	
+	abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "manufacture_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_manufacture_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_manufacture_address",
+				"type": "string"
+			}
+		],
+		"name": "store_manufacture_details",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "manufacture_id",
+				"type": "uint256"
+			}
+		],
+		"name": "retreive_manufacture_details",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+contractaddress = '0x9D7f74d0C41E726EC95884E0e97Fa6129e3b5E99';
+
+ 
+
+var myContract = new Web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '4000000000', gas: '8000000'});
+
+                           
+
+var result = myContract.methods.store(18).send(function (err, result) {
+
+               
+
+        console.log("Result: ", result);
+
+            if (result) { console.log(result); }                   
+
+        });        
+
+ 
+
+var result = myContract.methods.retrieve().call(function (err, result) {
+
+               
+
+        console.log("Result: ", result);
+
+            if (result) { console.log(result[0]); }                
+
+        });        
+    </script>	
+</body>
+</html>
