@@ -1,0 +1,106 @@
+<html>
+<head><title> Demo Page </title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+
+    <script>	
+	
+	var account;
+	window.addEventListener('load', async () => {
+		console.log("In Event Listener");
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+						
+			// To Capture the account details from MetaMask
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+				
+			}
+			console.log(account);
+		
+		abi = 
+	[
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "manufacture_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_manufacture_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_manufacture_address",
+				"type": "string"
+			}
+		],
+		"name": "store_manufacture_details",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "manufacture_id",
+				"type": "uint256"
+			}
+		],
+		"name": "retreive_manufacture_details",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+
+contractaddress = '0x2BF299b7cBf487CcCF346000B394f2efACA9A020';
+
+var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '4000000000', gas: '8000000'});
+							
+var result = myContract.methods.store(18).send(function (err, result) {
+				
+		console.log("Result: ", result);
+			if (result) { console.log(result); }					
+		});			
+
+var result = myContract.methods.retrieve().call(function (err, result) {
+				
+		console.log("Result: ", result);
+			if (result) { console.log(result[0]); }					
+		});			
+
+		});
+		
+		
+    </script>	
+</body>
+</html>	
