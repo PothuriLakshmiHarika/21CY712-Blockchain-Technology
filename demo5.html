@@ -30,23 +30,49 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "num",
+				"name": "pharmastore_id",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_pharmastore_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_pharmastore_address",
+				"type": "string"
 			}
 		],
-		"name": "store",
+		"name": "store_pharmastore_details",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "retrieve",
-		"outputs": [
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "pharmastore_id",
 				"type": "uint256"
+			}
+		],
+		"name": "retreive_pharmastore_details",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -55,7 +81,7 @@
 ];
 
 
-contractaddress = '0x66dC410b6B85b8Ded4230a1373Dd3567C0CeE492';
+contractaddress = '0x60bdEaB950E928580b188F37885242Ff316826E0';
 
 var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '4000000000', gas: '8000000'});
 							
