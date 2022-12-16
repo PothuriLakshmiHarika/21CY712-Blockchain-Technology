@@ -24,8 +24,7 @@
 				
 			}
 			console.log(account);
-		
-		abi = [
+			abi = [
 	{
 		"inputs": [
 			{
@@ -79,14 +78,10 @@
 		"type": "function"
 	}
 ];
-
-
 contractaddress = '0x88BA45D8810a99851f7E8E737a673200d878ECf1';
-
 var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '4000000000', gas: '8000000'});
 							
-var result = myContract.methods.store(44).send(function (err, result) 
-{
+var result = myContract.methods.store(20).send(function (err, result) {
 				
 		console.log("Result: ", result);
 			if (result) { console.log(result); }					
@@ -99,8 +94,7 @@ var result = myContract.methods.retrieve().call(function (err, result) {
 		});			
 
 		});
-		
-		
-    </script>	
-</body>
-</html>	
+
+			</script>
+			</body>
+			</html>
