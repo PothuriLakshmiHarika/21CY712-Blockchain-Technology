@@ -26,6 +26,40 @@
 			console.log(account);
 			abi = [
 	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "pharmastore_id",
+				"type": "uint256"
+			}
+		],
+		"name": "retreive",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -41,47 +75,23 @@
 				"internalType": "string",
 				"name": "_pharmastore_address",
 				"type": "string"
-			}
-		],
-		"name": "store_pharmastore_details",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "pharmastore_id",
-				"type": "uint256"
-			}
-		],
-		"name": "retreive_pharmastore_details",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "",
+				"name": "_pharmastore_distributionplace",
 				"type": "string"
 			}
 		],
-		"stateMutability": "view",
+		"name": "store",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ];
-contractaddress = '0x60bdEaB950E928580b188F37885242Ff316826E0';
+contractaddress = '0x1cB125F0D8597769962054720946B6AAB669DE67';
 var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '4000000000', gas: '8000000'});
 							
-var result = myContract.methods.store(20).send(function (err, result) {
+var result = myContract.methods.store(18).send(function (err, result) {
 				
 		console.log("Result: ", result);
 			if (result) { console.log(result); }					
