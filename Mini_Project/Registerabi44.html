@@ -81,7 +81,7 @@
 contractaddress = '0x76648E4c9AD657E6278CA83DF5b604449b4466b9';
 var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '4000000000', gas: '8000000'});
 							
-var result = myContract.methods.store(18).send(function (err, result) {
+var result = myContract.methods.store(18,"ramguru","lotuspond").send(function (err, result) {
 				
 		console.log("Result: ", result);
 			if (result) { console.log(result); }					
